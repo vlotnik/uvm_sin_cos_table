@@ -2,6 +2,7 @@
 package sincos_package;
     import uvm_pkg::*;                                      // [UVM] package
     `include "uvm_macros.svh"                               // [UVM] package
+    `include "common_macros.svh"
 
     `include "sincos_seqi.svh"
     typedef uvm_sequencer #(sincos_seqi) sincos_seqr;       // [UVM] sequencer

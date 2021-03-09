@@ -1,8 +1,7 @@
 // sincos_seqi.svh
 class sincos_seqi extends uvm_sequence_item;                // [UVM] class
-    `uvm_object_utils(sincos_seqi);                         // [UVM] macro
-
-    extern function new(string name = "sincos_seqi");
+    `uvm_object_utils(sincos_seqi)                          // [UVM] macro
+    `uvm_object_new
 
     rand int phase_v[];
     rand int phase;
@@ -27,10 +26,6 @@ endclass
 //----------------------------------------------------------------------------------
 // IMPLEMENTATION
 //----------------------------------------------------------------------------------
-function sincos_seqi::new(string name = "sincos_seqi");
-    super.new(name);
-endfunction
-
 function bit sincos_seqi::do_compare(uvm_object rhs, uvm_comparer comparer);
     sincos_seqi RHS;
     bit same;

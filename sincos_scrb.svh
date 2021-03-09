@@ -4,8 +4,8 @@
 
 class sincos_scrb extends uvm_scoreboard;                   // [UVM] class
     `uvm_component_utils(sincos_scrb)                       // [UVM] macro
+    `uvm_component_new
 
-    extern function new(string name, uvm_component parent);
     extern function void build_phase(uvm_phase phase);      // [UVM] build phase
 
     uvm_analysis_imp_i #(sincos_seqi, sincos_scrb) sincos_aprt_i;
@@ -26,10 +26,6 @@ endclass
 //-------------------------------------------------------------------------------------------------------------------------------
 // IMPLEMENTATION
 //-------------------------------------------------------------------------------------------------------------------------------
-function sincos_scrb::new(string name, uvm_component parent);
-    super.new(name, parent);
-endfunction
-
 function void sincos_scrb::build_phase(uvm_phase phase);
     sincos_aprt_i = new("sincos_aprt_i", this);
     sincos_aprt_o = new("sincos_aprt_o", this);
@@ -81,6 +77,7 @@ function int sincos_scrb::get_ideal_sin(int phase, int max = (2 ** 15 - 1));
 endfunction
 
 function int sincos_scrb::get_ideal_cos(int phase, int max = (2 ** 15 - 1));
+
     real c_pi = 3.1415926535897932384626433832795;
     real phase_r;
     real cos_r, cos_i, cos_floor;

@@ -1,8 +1,8 @@
 // sincos_drvr.svh
 class sincos_drvr extends uvm_driver #(sincos_seqi);        // [UVM] class
     `uvm_component_utils(sincos_drvr)                       // [UVM] macro
+    `uvm_component_new
 
-    extern function new(string name, uvm_component parent);
     extern task run_phase(uvm_phase phase);                 // [UVM] run phase
 
     virtual sincos_if sincos_if_h;                          // our interface
@@ -12,10 +12,6 @@ endclass
 //-------------------------------------------------------------------------------------------------------------------------------
 // IMPLEMENTATION
 //-------------------------------------------------------------------------------------------------------------------------------
-function sincos_drvr::new(string name, uvm_component parent);
-    super.new(name, parent);
-endfunction
-
 task sincos_drvr::run_phase(uvm_phase phase);
     forever begin
         seq_item_port.get_next_item(sincos_seqi_h);         // [UVM] request new transaction

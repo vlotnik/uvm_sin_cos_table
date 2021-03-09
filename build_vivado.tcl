@@ -12,6 +12,7 @@ create_project $project_name "$project_name" -force
 
 # add sources
 add_files -norecurse sin_cos_table.vhd
+add_files -norecurse common_macros.svh
 add_files -norecurse sincos_package.sv
 add_files -norecurse tb_top.sv
 add_files -norecurse sincos_test_default.svh
